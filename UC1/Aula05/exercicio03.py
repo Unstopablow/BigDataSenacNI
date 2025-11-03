@@ -1,5 +1,3 @@
-
-
 contador = 1
 limite = 3
 senha = 1234
