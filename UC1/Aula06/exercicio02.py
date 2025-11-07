@@ -7,8 +7,8 @@ from datetime import datetime
 
 candidatos_validos = []
 historico_canditados = {}
-
-for i in range(3):
+contador_candidato = 3
+for i in range(contador_candidato):
     try:
         anonascimento = int(input(f'Digite o ano de nascimento: \n'))
         ano_atual = datetime.now().year
@@ -16,10 +16,12 @@ for i in range(3):
         #print(idade)
         if idade <18:
             print(f'Candidato menor, não poderá participar')
+            contador_candidato +=1
             continue
         elif idade >= 18:
             telefone = str(input(f'Digite um telefone: \n'))
             email = str(input(f'Digite um email: \n')) 
+            #contador_candidato += 1
             print("="*60,"\n")
             print(f'{"-_"*10} Detalhes canditato {i+1} {"-_"*9}\n')
             print(f'Idade do {i+1}º candidato: {idade}')
@@ -28,9 +30,22 @@ for i in range(3):
             print("\n","="*60)
             print("================= Cadastro do novo candidato ===============")
             print("="*60,"\n")
-            candidatos_validos.append(f' Candidato: {i+1} - Idade: {idade} - Telefone: {telefone} - Email: {email}') 
-            print(candidatos_validos) 
+            #candidatos_validos.append(f' Candidato: {i+1} - Idade: {idade} - Telefone: {telefone} - Email: {email}') 
+            #print(candidatos_validos) 
             
+            historico_canditados={
+                'candidato' : i+1,
+                'idade' : idade,
+                'telefone' : telefone,
+                'email' : email
+            }
+
+            candidatos_validos.append(historico_canditados)
+            print(candidatos_validos) 
+            print(contador_candidato)
             #candidatos_validos.append["Candidato": i,"Idade": idade,"Telefone" : telefone,"Email" : email]   
     except ValueError:
-        print("Entrada inválida. Tente novamente.")    
+        print("Entrada inválida. Tente novamente.") 
+print(" ","="*36)
+print(candidatos_validos) 
+print(" ","="*36)

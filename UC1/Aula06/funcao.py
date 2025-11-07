@@ -53,5 +53,5 @@ def origem_produtos():
                     print(f'Importado')
                     break 
         except ValueError:
-            print(f'Insira um numero') 
+            print(f'Insira um numero')
 origem_produtos()
