@@ -15,8 +15,8 @@ filme2 = {
     'ano' : 2006,
     'genero' : 'Ação', # thriller/drama
     'faixa_etaria' : 16
-}
 
+}
 blockbuster = []
 blockbuster.append(filme)
 print(blockbuster)
