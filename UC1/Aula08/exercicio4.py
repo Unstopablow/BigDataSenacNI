@@ -20,10 +20,8 @@ def calcular_multa(peso_total):
         excesso = peso_total - limite
         return multa * excesso      
     
-    elif limite < peso_total:
-
-        excesso = limite - peso_total
-        multa_acumulada = multa * excesso 
+    elif peso_total<=0:
+        return 0
         
     else:
         return 0
