@@ -119,8 +119,14 @@ def tela_cliente():
 def escolher_garcom():
     mostrar_funcionarios()
     while True:
-        num = input_int("Informe o número do garçom: ", 1, len(lista_mesas))
-        return num - 1
+
+        num = input_int("[0] - Retornar | informe o número do garçom: ", 0, len(lista_mesas))
+        if num == 0:
+            limpar_terminal()
+            tela_cliente()
+            break
+        else:
+            return num - 1
 
 def escolher_mesa(id_func):
     func = lista_mesas[id_func]
@@ -133,12 +139,16 @@ def escolher_mesa(id_func):
     print(" ".join(f"[{m}]" for m in func["mesa_livre"]))
 
     while True:
-        m = input_int("Escolha uma mesa: ")
+        m = input_int("[0] - Retornar | Escolha uma mesa: ")
+        if m == 0:
+            limpar_terminal()
+            escolher_garcom()
+            
 
         if m in func["mesa_livre"]:
             return m
-        
-        print("Mesa inválida ou já ocupada!")
+        else:
+            print("Mesa inválida ou já ocupada!")
 
 def escolher_prato():
     mostrar_cardapio()

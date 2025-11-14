@@ -16,7 +16,7 @@ def mostrar_animacao():
     #simbolos = [' ','.','.']
     simbolos = ['▁','▂','▃','▄','▅','▆','▇','█']
                 
-    for _ in range(1):
+    for _ in range(5):
         print(f"Carregando {random.choice(simbolos)} {random.choice(simbolos)} {random.choice(simbolos)} ", end="\r")
         time.sleep(0.2)
     print(" " * 20, end="\r")
@@ -70,7 +70,7 @@ def tela_inicial():
     print("--"*55)
     #return int(input(f'[0] - Encerrar programa \n[1] - Funcionarios \n[2] - Cliente\n--------------------------------------------------------------------------------------------------------------\n'))
     return int(input(f'[0] - Encerrar programa \n[1] - Cliente\n--------------------------------------------------------------------------------------------------------------\n'))
- 
+
 def tela_cliente():
     print(f'| Tela cliente |'.center(100))
     print("--"*55)
@@ -94,7 +94,7 @@ def tela_cliente():
             limpar_terminal()
             mostrar_animacao()                    
             limpar_terminal()
- 
+
 def novo_pedido():
     print(f'| Novo pedido |'.center(100))
     print("=="*55,"\n")
@@ -122,14 +122,14 @@ def novo_pedido():
     print(f'Nº do pedido: {pedido} \nGarçom: {lista_mesas[id_funcionario]["garcom"]} \nMesa: {mesa}')
     print(f'Prato: {cardapio_base[prato]["nome"]} - {cardapio_base[prato]["descricao"]} \nTotal: {cardapio_base[prato]["preco"]}\n')
     mostrar_animacao()
-    print(salao)
-    input()
+    #print(salao)
+    #input()
     tela_cliente()
 
 def organizar_mesas(id_funcionario,mesa):
     lista_mesas[id_funcionario]["mesa_uso"].append(mesa)
     lista_mesas[id_funcionario]["mesa_livre"].remove(mesa)
-           
+
 def resumo_pedidos(mesa,salao):
     print(f'| Tela de pagamento |'.center(100))
     print("--"*55,"\n")
